@@ -40,7 +40,6 @@ for (const btn of allBtn) {
 
         else if (value === '.') {
             if (nextValue.includes(value)) {
-                // alert('A decimal point can be used only once.')
                 return
             }
             nextValue += value
@@ -50,11 +49,18 @@ for (const btn of allBtn) {
 
 
         else if (value === '+' || value === '-' || value === '*' || value === '/') {
-            operator = value
-            prevValue = nextValue
-            nextValue = ''
-            updateOperation()
-            return
+            if (nextValue === '' && prevValue !== '') {
+                operator = value
+                updateOperation()
+                return
+            }
+            if (nextValue !== '') {
+                operator = value
+                prevValue = nextValue
+                nextValue = ''
+                updateOperation()
+                return
+            }
         }
 
         else if (value === '=') {
