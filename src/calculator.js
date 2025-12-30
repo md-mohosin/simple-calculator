@@ -8,22 +8,47 @@ let operator = '';
 let nextValue = '';
 
 
-function updateOperation(){
+function updateOperation() {
     operation.textContent = prevValue + operator + nextValue;
 }
-function updateResult(){
-    result.innerText=nextValue
+function updateResult() {
+    result.innerText = nextValue
+}
+function clearAll() {
+    prevValue = '';
+    operator = '';
+    nextValue = '';
+    operation.textContent = 0;
+    result.textContent = 0
 }
 
 
 for (const btn of allBtn) {
     btn.addEventListener("click", (e) => {
+
+        btn.classList.add("active")
+        setTimeout(function () {
+            btn.classList.remove("active")
+        }, 150)
+
         const value = e.target.dataset.value;
         if (!isNaN(value)) {
             nextValue = nextValue + value
             updateOperation()
             return
         }
+
+        else if (value === '.') {
+            if (nextValue.includes(value)) {
+                // alert('A decimal point can be used only once.')
+                return
+            }
+            nextValue += value
+            updateOperation()
+            return
+        }
+
+
         else if (value === '+' || value === '-' || value === '*' || value === '/') {
             operator = value
             prevValue = nextValue
@@ -64,10 +89,30 @@ for (const btn of allBtn) {
             operator = ''
             prevValue = ''
             updateResult()
+            return
         }
 
-        else if (value === "C" || value === "AC") {
+        else if (value === "AC") {
+            clearAll()
         }
+
+        else if (value === 'C') {
+            if (nextValue !== '') {
+                nextValue = nextValue.slice(0, -1)
+            }
+            else if (operator !== '') {
+                operator = operator.slice(0, -1)
+            }
+            else if (prevValue !== '') {
+                prevValue = prevValue.slice(0, -1)
+            }
+            updateOperation()
+
+            if (nextValue === '' && operator === '' && prevValue === '') {
+                operation.textContent = '0'
+            }
+        }
+
     })
 
 }

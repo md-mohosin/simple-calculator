@@ -50,10 +50,16 @@ body {
   border: none;
 }
 
+
 .bg-color{
   background: #26B8D8;
 }
 
 .color{
   color: red;
+}
+
+.active{
+   background-color: orange;
+
 }
