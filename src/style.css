@@ -7,6 +7,7 @@ body {
 
 *{
   box-sizing: border-box;
+  padding: 0;margin: 0;
 }
 
 .calculator {
@@ -20,12 +21,12 @@ body {
 
 .container {
   width: 450px;
-  height: 90%;
-  /* border: 1px solid salmon; */
+  height: 95%;
   background-color: white;
   box-shadow: 0px 3px 14px rgb(152, 150, 150);
   padding: 25px;
   border-radius: 30px;
+  display: flex;justify-content: space-between;flex-direction: column;
 }
 
 .button-container {
@@ -42,7 +43,17 @@ body {
   justify-content: center;
   align-items: center;
   padding: 30px 0;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 8px;
-  box-shadow: 0px 3px 14px rgb(152, 150, 150);
+  box-shadow: 0px 3px 9px 0px rgb(152, 150, 150);
+  cursor: pointer;
+  border: none;
+}
+
+.bg-color{
+  background: #26B8D8;
+}
+
+.color{
+  color: red;
 }
