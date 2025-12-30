@@ -78,6 +78,10 @@ for (const btn of allBtn) {
                 result = diffrence
             }
             else if (operator === '/') {
+                if(numNextV === 0){
+                    alert("Num can't divided by 0")
+                    return
+                }
                 const division = numPrevV / numNextV;
                 result = division
             }
@@ -86,8 +90,8 @@ for (const btn of allBtn) {
                 result = multiply
             }
 
+
             else {
-                alert("Error")
                 return
             }
 
