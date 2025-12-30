@@ -50,6 +50,13 @@ body {
   border: none;
 }
 
+.size{
+  grid-column: span 2;
+}
+
+#operation{
+flex-wrap: wrap;
+}
 
 .bg-color{
   background: #26B8D8;

@@ -48,7 +48,7 @@ for (const btn of allBtn) {
         }
 
 
-        else if (value === '+' || value === '-' || value === '*' || value === '/') {
+        else if (value === '+' || value === '-' || value === '*' || value === '/' || value === '%') {
             if (nextValue === '' && prevValue !== '') {
                 operator = value
                 updateOperation()
@@ -78,18 +78,24 @@ for (const btn of allBtn) {
                 result = diffrence
             }
             else if (operator === '/') {
-                if(numNextV === 0){
+                if (numNextV === 0) {
                     alert("Num can't divided by 0")
                     return
                 }
                 const division = numPrevV / numNextV;
                 result = division
             }
+
             else if (operator === '*') {
                 const multiply = numPrevV * numNextV
                 result = multiply
             }
 
+            else if (operator === '%') {
+                const num = prevValue * nextValue;
+                const parcenteg = num / 100;
+                result = parcenteg
+            }
 
             else {
                 return
