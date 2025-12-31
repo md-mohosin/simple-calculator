@@ -70,3 +70,15 @@ flex-wrap: wrap;
    background-color: orange;
 
 }
+
+
+
+
+
+
+
+@media (max-width:600px) {
+  .container{
+    height: 100%;
+  }
+}
